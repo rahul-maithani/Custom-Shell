@@ -15,12 +15,20 @@ class shellBackend:
             return 0
     def getls(self):
         try:
-            res=subprocess.check_output(["powershell", "-Command", "ls"]).strip().decode('utf-8')
+            res="command - ls\n"+subprocess.check_output(["powershell", "-Command", "ls"]).strip().decode('utf-8')
             return res
         except Exception as e:
             print(f"Error: {e}")
             return 0
-        
+    def createnewFile(self,file_name):
+        return os.system(f'type nul > {file_name}')
+    def createNewFolder(self,folder_name):
+        return os.system(f'mkdir {folder_name}')
+    
+    def deleteFile(self,file_name):
+        return os.system(f"del {file_name}")
+    def deleteFolder(self,folder_name):
+        return os.system(f"rmdir {folder_name}")
 
         
 # try:
