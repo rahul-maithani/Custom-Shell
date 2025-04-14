@@ -29,8 +29,13 @@ class shellBackend:
         return os.system(f"del {file_name}")
     def deleteFolder(self,folder_name):
         return os.system(f"rmdir {folder_name}")
-
-        
+    def pingRun(self,url):
+        res=subprocess.run(["ping","-n","4",f"{url}"],capture_output=True, text=True)
+        return res.stdout
+    def tracertRun(self):
+        res=subprocess.run(["tracert"],capture_output=True, text=True)
+        print(res)
+        return res.stdout
 # try:
 #     obj=shellBackend()
 #     obj.getls()

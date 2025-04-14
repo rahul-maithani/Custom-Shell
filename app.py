@@ -1,7 +1,7 @@
 from tkinter import *
 from backend import *
 from filemang import *
-
+from network import *
 class shell:
     def __init__(self):
         self.window=Tk()
@@ -13,7 +13,10 @@ class shell:
     def handleFileManagement(self,event):
         self.fileWindow=fileManWindow()
         self.fileWindow.run()
-    
+    def handlNetworkButton(self,event):
+        self.networkObj=network()
+        self.networkObj.run()
+
     def mainWindow(self):
         self.window.title("Custom Shell")
         self.window.configure(width='800px',height='500px')
@@ -34,9 +37,7 @@ class shell:
 
 
         self.fileManagementBtn.bind("<Button-1>",self.handleFileManagement)
-
-
-        # self.button=
+        self.networkBtn.bind("<Button-1>",self.handlNetworkButton)
 try:
     app=shell()
     app.run()
