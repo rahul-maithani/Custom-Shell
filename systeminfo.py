@@ -137,7 +137,4 @@ class SystemInfo:
         info += f"{'-'*40}"
         self.append_info(info)
 
-# ---- Program Entry Point ----
-##if __name__ == "__main__":
-  ##  app = SystemInfo()
-   ## app.run()
+
