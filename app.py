@@ -2,6 +2,8 @@ from tkinter import *
 from backend import *
 from filemang import *
 from network import *
+from systeminfo import *
+
 class shell:
     def __init__(self):
         self.window=Tk()
@@ -17,6 +19,12 @@ class shell:
         self.networkObj=network()
         self.networkObj.run()
 
+    
+    def handleSystemInfo(self,event):
+        self.systeminfoobj=SystemInfo()
+        self.systeminfoobj.run()
+        
+    
     def mainWindow(self):
         self.window.title("Custom Shell")
         self.window.configure(width='800px',height='500px')
@@ -33,11 +41,15 @@ class shell:
 
         self.networkBtn=Button(self.window,text="Network",font=('Arial',15,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
         self.networkBtn.place(rely=.08,relx=.22,relheight=.2,relwidth=.2)
+        
+        self.systeminfoBtn=Button(self.window,text="SystemInfo",font=('Arial',15,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
+        self.systeminfoBtn.place(rely=.08,relx=.43,relheight=.2,relwidth=.2)
 
 
 
         self.fileManagementBtn.bind("<Button-1>",self.handleFileManagement)
         self.networkBtn.bind("<Button-1>",self.handlNetworkButton)
+        self.systeminfoBtn.bind("<Button-1>",self.handleSystemInfo)
 try:
     app=shell()
     app.run()

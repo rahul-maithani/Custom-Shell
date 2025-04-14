@@ -31,7 +31,7 @@ class network():
 
 
     def handleExit(self,event):
-        self.window.destroy()
+        self.window.after(1, self.window.destroy)
     def mainWindow(self):
         self.window.title("Network")
         self.window.configure(width='800px',height='500px')
@@ -68,21 +68,17 @@ class network():
         self.inputEntry.place(relx=.72,rely=.1,relheight=.8,relwidth=.27)
         self.inputEntry.bind("<Return>",self.on_enter)
 
-        self.outputArea=Text(self.window,font=('Times',16),padx=4,pady=4,borderwidth=3,relief='ridge',bg="black",fg="white",insertbackground="white")
+        self.outputArea=Text(self.window,font=('Times',16),padx=4,pady=4,borderwidth=3,relief='ridge',bg="black",fg="lime",insertbackground='lime')
         self.outputArea.place(relx=.01,rely=.6,relheight=.39,relwidth=.98)
 
 
         self.outputArea.insert(END,"Myshell> ")
         self.pingBtn.bind("<Button-1>",self.handlePingBtn)
         self.tracertBtn.bind("<Button-1>",self.handletracertBtn)
-        # self.createFile.bind("<Button-1>",self.handleCreateFile)
-        # self.createFolder.bind("<Button-1>",self.handlCreateFolder)
-        # self.deleteFile.bind("<Button-1>",self.handleDeleteFile)
-        # self.deleteFolder.bind("<Button-1>",self.handleDeleteFolder)
         self.exitButton.bind("<Button-1>",self.handleExit)
 
     def run(self):
         self.window.mainloop()
 
-obj=network()
-obj.run()
+# obj=network()
+# obj.run()
