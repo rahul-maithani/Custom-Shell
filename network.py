@@ -16,20 +16,37 @@ class network():
 
         if(self.inputType=='ping'):
             self.outputArea.insert(END,f"\n{self.backendObj.pingRun(inputRes)}\n")
-
+        elif(self.inputType=='getIp'):
+            self.outputArea.insert(END,f"\nMyshell>{self.backendObj.getIp(inputRes)}\n")
+        elif(self.inputType=='curl'):
+            self.outputArea.insert(END,f'\nMyshell>{self.backendObj.curl(inputRes).stdout}\n')
         self.outputArea.yview(END)
 
+    def handleCurl(self,event):
+        self.inputType="curl"
+        self.inputFrame.place(rely=.5,relx=.01,relheight=.09,relwidth=.98)
+        self.inputText.config(text="Enter the url to curl:")
+        
 
     def handlePingBtn(self,event):
         self.inputType="ping"
         self.inputFrame.place(rely=.5,relx=.01,relheight=.09,relwidth=.98)
         self.inputText.config(text="Enter the url,ip to ping:")
 
+    def handleIpBtn(self,event):
+        self.inputType="getIp"
+        self.inputFrame.place(rely=.5,relx=.01,relheight=.09,relwidth=.98)
+        self.inputText.config(text="Enter the url whoose ip you want to get:")
+
     def handletracertBtn(self,event):
-        self.outputArea.insert(END,f"\n{self.backendObj.tracertRun()}\n")
+        self.outputArea.insert(END,f"\nMyshell>{self.backendObj.tracertRun()}\n")
         self.outputArea.yview(END)
-
-
+    def handleIpConfig(self,event):
+        self.outputArea.insert(END,f'\nMyshell>{self.backendObj.ipconfig()}\n')
+        self.outputArea.yview(END)
+    def handleHostBtn(self,event):
+        self.outputArea.insert(END,f"\nMyshell> Hostname : {self.backendObj.hostRun()}\n")
+        self.outputArea.yview(END)
     def handleExit(self,event):
         self.window.after(1, self.window.destroy)
     def mainWindow(self):
@@ -47,14 +64,12 @@ class network():
         self.getIpBtn=Button(self.window,text="Get Ip ",font=('Arial',12,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
         self.getIpBtn.place(relx=.58,relwidth=.18,relheight=.15)
 
-        self.checkPortBtn=Button(self.window,text="Open Port",font=('Arial',12,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
-        self.checkPortBtn.place(relx=.77,relwidth=.18,relheight=.15)
+        self.curlBtn=Button(self.window,text="Curl",font=('Arial',12,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
+        self.curlBtn.place(relx=.77,relwidth=.18,relheight=.15)
         self.ipConfigBtn=Button(self.window,text="Ip Config",font=('Arial',12,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
         self.ipConfigBtn.place(relx=.01,relwidth=.18,relheight=.15,rely=.16)
-        self.dnsLookupBtn=Button(self.window,text="Dns Lookup",font=('Arial',12,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
-        self.dnsLookupBtn.place(relx=.2,relwidth=.18,relheight=.15,rely=.16)
         self.exitButton=Button(self.window,text="Exit",font=('Arial',12,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
-        self.exitButton.place(relx=.39,relwidth=.18,relheight=.15,rely=.16)
+        self.exitButton.place(relx=.2,relwidth=.18,relheight=.15,rely=.16)
 
 
 
@@ -76,6 +91,10 @@ class network():
         self.pingBtn.bind("<Button-1>",self.handlePingBtn)
         self.tracertBtn.bind("<Button-1>",self.handletracertBtn)
         self.exitButton.bind("<Button-1>",self.handleExit)
+        self.hostBtn.bind("<Button-1>",self.handleHostBtn)
+        self.getIpBtn.bind("<Button-1>",self.handleIpBtn)
+        self.curlBtn.bind("<Button-1>",self.handleCurl)
+        self.ipConfigBtn.bind("<Button-1>",self.handleIpConfig)
 
     def run(self):
         self.window.mainloop()

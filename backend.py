@@ -1,5 +1,6 @@
 import os
 import subprocess
+import socket
 
 class shellBackend:
     def __init__(self):
@@ -34,8 +35,23 @@ class shellBackend:
         return res.stdout
     def tracertRun(self):
         res=subprocess.run(["tracert"],capture_output=True, text=True)
-        print(res)
         return res.stdout
+    def hostRun(self):
+        hostname = subprocess.check_output("hostname", shell=True).decode().strip()
+        return hostname
+    def getIp(self,url):
+        ip=subprocess.run(["nslookup",f"{url}"],capture_output=True,text=True)
+        return ip
+    def curl(self,url):
+        result=subprocess.run(['curl',f'{url}'],capture_output=True,text=True)
+        # print(result)
+        return result
+    def ipconfig(self):
+        result=subprocess.run(['ipconfig'],capture_output=True,text=True)
+        if(result.returncode==0):
+            return result.stdout
+        else:
+            return result.stderr
 # try:
 #     obj=shellBackend()
 #     obj.getls()

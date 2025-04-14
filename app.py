@@ -46,7 +46,6 @@ class shell:
         self.systeminfoBtn.place(rely=.08,relx=.43,relheight=.2,relwidth=.2)
 
 
-
         self.fileManagementBtn.bind("<Button-1>",self.handleFileManagement)
         self.networkBtn.bind("<Button-1>",self.handlNetworkButton)
         self.systeminfoBtn.bind("<Button-1>",self.handleSystemInfo)
