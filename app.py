@@ -1,6 +1,7 @@
 from tkinter import *
 from backend import *
 from filemang import *
+from systeminfo import *
 
 class shell:
     def __init__(self):
@@ -13,6 +14,11 @@ class shell:
     def handleFileManagement(self,event):
         self.fileWindow=fileManWindow()
         self.fileWindow.run()
+    
+    def handleSystemInfo(self,event):
+        self.systeminfoobj=SystemInfo()
+        self.systeminfoobj.run()
+        
     
     def mainWindow(self):
         self.window.title("Custom Shell")
@@ -30,10 +36,13 @@ class shell:
 
         self.networkBtn=Button(self.window,text="Network",font=('Arial',15,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
         self.networkBtn.place(rely=.08,relx=.22,relheight=.2,relwidth=.2)
+        self.systeminfoBtn=Button(self.window,text="SystemInfo",font=('Arial',15,'bold'),cursor='hand2',borderwidth=3,relief='ridge')
+        self.systeminfoBtn.place(rely=.08,relx=.43,relheight=.2,relwidth=.2)
 
 
 
         self.fileManagementBtn.bind("<Button-1>",self.handleFileManagement)
+        self.systeminfoBtn.bind("<Button-1>",self.handleSystemInfo)
 
 
         # self.button=
