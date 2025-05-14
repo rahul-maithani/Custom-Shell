@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralwidget {
+    background-image: url(&quot;background.jpeg&quot;);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;
+background-color:url(&quot;background.jpeg&quot;);</string>
+        </property>
+        <property name="text">
+         <string>Custom Shell</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget#centralwidget {
+    background-image: url(&quot;C:/Users/ASUS/OneDrive/Desktop/Projects/GUI Based Shell/background.jpeg&quot;);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+</string>
+        </property>
+        <widget class="QPushButton" name="pushButton">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>10</y>
+           <width>250</width>
+           <height>75</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: rgba(0, 77, 64, 0.7);   /* Dark teal with 70% opacity */
+    color: white;
+    font: bold 16px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 150, 136, 0.8); /* Lighter teal with 80% opacity */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>    File Management</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>FILE.jpeg</normaloff>FILE.jpeg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="geometry">
+          <rect>
+           <x>380</x>
+           <y>10</y>
+           <width>250</width>
+           <height>75</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #0D47A1;
+    color: white;
+    font: bold 16px;
+    border-radius: 10px;
+    padding: 20px;
+}
+QPushButton:hover {
+    background-color: #1976D2;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>    Network</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>network.png</normaloff>network.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>60</width>
+           <height>60</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>140</y>
+           <width>250</width>
+           <height>75</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #311B92;
+    color: white;
+    font: bold 16px;
+    border-radius: 10px;
+    padding: 20px;
+}
+QPushButton:hover {
+    background-color: #7B1FA2;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>    System Info</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>SINFO.jpeg</normaloff>SINFO.jpeg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
