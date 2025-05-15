@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>animated4.webp</pixmap>
+     <pixmap>./media/animated4.webp</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

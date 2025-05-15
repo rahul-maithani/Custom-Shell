@@ -1,5 +1,5 @@
 <RCC>
   <qresource prefix="1">
-    <file>neonbackground.jpg</file>
+    <file>./media/neonbackground.jpg</file>
   </qresource>
 </RCC>

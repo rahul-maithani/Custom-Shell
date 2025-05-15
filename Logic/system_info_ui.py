@@ -15,12 +15,14 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.setFixedSize(1100, 849)
-        
-        Form.setWindowFlags(QtCore.Qt.Window |
-                          QtCore.Qt.CustomizeWindowHint |
-                          QtCore.Qt.WindowTitleHint |
-                          QtCore.Qt.WindowCloseButtonHint)
-        
+
+        Form.setWindowFlags(
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.verticalLayoutWidget = QtWidgets.QWidget(Form)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 0, 1061, 791))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
@@ -28,89 +30,103 @@ class Ui_Form(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.outputScreen = QtWidgets.QTextEdit(self.verticalLayoutWidget)
-        self.outputScreen.setStyleSheet("background-color: black;\n"
-"color: #2EC4B6;\n"
-"font-family: Consolas;\n"
-"font-size: 12pt;\n"
-"")
+        self.outputScreen.setStyleSheet(
+            "background-color: black;\n"
+            "color: #2EC4B6;\n"
+            "font-family: Consolas;\n"
+            "font-size: 12pt;\n"
+            ""
+        )
         self.outputScreen.setReadOnly(True)
         self.outputScreen.setObjectName("outputScreen")
         self.verticalLayout.addWidget(self.outputScreen)
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(655, -50, 400, 791))     #gif position
+        self.label.setGeometry(QtCore.QRect(655, -50, 400, 791))  # gif position
         self.label.setText("")
-        
-        self.movie = QtGui.QMovie("animated4.webp")
+
+        self.movie = QtGui.QMovie("./media/animated4.webp")
         self.label.setMovie(self.movie)
         self.movie.start()
-        
+
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(750, 0, 240, 100))
-        self.label_2.setStyleSheet("font: 75 24pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 0, 0);")
+        self.label_2.setStyleSheet(
+            'font: 75 24pt "MS Shell Dlg 2";\n'
+            "color: rgb(255, 255, 255);\n"
+            "background-color: rgb(0, 0, 0);"
+        )
         self.label_2.setObjectName("label_2")
         self.pushButton = QtWidgets.QPushButton(Form)
         self.pushButton.setGeometry(QtCore.QRect(770, 170, 171, 51))
-        self.pushButton.setStyleSheet("QPushButton{\n"
-"    background-color:#3F88C5;\n"
-"    color:white;\n"
-"    font: 14pt \"MS Shell Dlg 2\";\n"
-"    border-radius:20%;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color:#A2AEBB;\n"
-"}")
+        self.pushButton.setStyleSheet(
+            "QPushButton{\n"
+            "    background-color:#3F88C5;\n"
+            "    color:white;\n"
+            '    font: 14pt "MS Shell Dlg 2";\n'
+            "    border-radius:20%;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "    background-color:#A2AEBB;\n"
+            "}"
+        )
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(Form)
         self.pushButton_2.setGeometry(QtCore.QRect(770, 240, 171, 51))
-        self.pushButton_2.setStyleSheet("QPushButton{\n"
-"    background-color:#3F88C5;\n"
-"    color:white;\n"
-"    font: 14pt \"MS Shell Dlg 2\";\n"
-"    border-radius:20%;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color:#A2AEBB;\n"
-"}")
+        self.pushButton_2.setStyleSheet(
+            "QPushButton{\n"
+            "    background-color:#3F88C5;\n"
+            "    color:white;\n"
+            '    font: 14pt "MS Shell Dlg 2";\n'
+            "    border-radius:20%;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "    background-color:#A2AEBB;\n"
+            "}"
+        )
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(Form)
         self.pushButton_3.setGeometry(QtCore.QRect(770, 310, 171, 51))
-        self.pushButton_3.setStyleSheet("QPushButton{\n"
-"    background-color:#3F88C5;\n"
-"    color:white;\n"
-"    font: 14pt \"MS Shell Dlg 2\";\n"
-"    border-radius:20%;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color:#A2AEBB;\n"
-"}")
+        self.pushButton_3.setStyleSheet(
+            "QPushButton{\n"
+            "    background-color:#3F88C5;\n"
+            "    color:white;\n"
+            '    font: 14pt "MS Shell Dlg 2";\n'
+            "    border-radius:20%;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "    background-color:#A2AEBB;\n"
+            "}"
+        )
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(Form)
         self.pushButton_4.setGeometry(QtCore.QRect(770, 380, 171, 51))
-        self.pushButton_4.setStyleSheet("QPushButton{\n"
-"    background-color:#3F88C5;\n"
-"    color:white;\n"
-"    font: 14pt \"MS Shell Dlg 2\";\n"
-"    border-radius:20%;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color:#A2AEBB;\n"
-"}")
+        self.pushButton_4.setStyleSheet(
+            "QPushButton{\n"
+            "    background-color:#3F88C5;\n"
+            "    color:white;\n"
+            '    font: 14pt "MS Shell Dlg 2";\n'
+            "    border-radius:20%;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "    background-color:#A2AEBB;\n"
+            "}"
+        )
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_5 = QtWidgets.QPushButton(Form)
         self.pushButton_5.setGeometry(QtCore.QRect(770, 450, 171, 51))
-        self.pushButton_5.setStyleSheet("QPushButton{\n"
-"    background-color:#A57548;\n"
-"    color:white;\n"
-"    font: 14pt \"MS Shell Dlg 2\";\n"
-"    border-radius:20%;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    background-color:#F6C28B;\n"
-"}")
+        self.pushButton_5.setStyleSheet(
+            "QPushButton{\n"
+            "    background-color:#A57548;\n"
+            "    color:white;\n"
+            '    font: 14pt "MS Shell Dlg 2";\n'
+            "    border-radius:20%;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "    background-color:#F6C28B;\n"
+            "}"
+        )
         self.pushButton_5.setObjectName("pushButton_5")
 
         self.retranslateUi(Form)
@@ -129,6 +145,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

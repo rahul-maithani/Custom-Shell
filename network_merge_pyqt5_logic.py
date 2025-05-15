@@ -1,8 +1,9 @@
 # network_pyqt.py
 from PyQt5 import QtWidgets
-from notNeeded.network_gui import Ui_MainWindow  # PyQt GUI
-from notNeeded.backend import shellBackend       # Logic
+from Logic.network_gui import Ui_MainWindow  # PyQt GUI
+from Logic.backend import shellBackend  # Logic
 import sys
+
 
 class NetworkQtWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -29,20 +30,20 @@ class NetworkQtWindow(QtWidgets.QMainWindow):
             self.process_input(text)
 
     def ask_ping(self):
-        self.ask_input("Ping", "Enter the IP or URL to ping:", 'ping')
+        self.ask_input("Ping", "Enter the IP or URL to ping:", "ping")
 
     def ask_curl(self):
-        self.ask_input("Curl", "Enter the URL to curl:", 'curl')
+        self.ask_input("Curl", "Enter the URL to curl:", "curl")
 
     def ask_get_ip(self):
-        self.ask_input("Get IP", "Enter the URL to get IP of:", 'getIp')
+        self.ask_input("Get IP", "Enter the URL to get IP of:", "getIp")
 
     def process_input(self, inputRes):
-        if self.inputType == 'ping':
+        if self.inputType == "ping":
             result = self.backend.pingRun(inputRes)
-        elif self.inputType == 'getIp':
+        elif self.inputType == "getIp":
             result = self.backend.getIp(inputRes)
-        elif self.inputType == 'curl':
+        elif self.inputType == "curl":
             result = self.backend.curl(inputRes).stdout
         else:
             result = "Unknown input type."

@@ -103,7 +103,7 @@ QPushButton:hover {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>FILE.jpeg</normaloff>FILE.jpeg</iconset>
+           <normaloff>./media/FILE.jpeg</normaloff>./media/FILE.jpeg</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -139,7 +139,7 @@ QPushButton:hover {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>network.png</normaloff>network.png</iconset>
+           <normaloff>./media/network.png</normaloff>./media/network.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -175,7 +175,7 @@ QPushButton:hover {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>SINFO.jpeg</normaloff>SINFO.jpeg</iconset>
+           <normaloff>./media/SINFO.jpeg</normaloff>./media/SINFO.jpeg</iconset>
          </property>
          <property name="iconSize">
           <size>

@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from notNeeded.system_info_ui import Ui_Form
+from Logic.system_info_ui import Ui_Form
 import platform
 import psutil
 from cpuinfo import get_cpu_info
@@ -21,7 +21,7 @@ class SystemInfoLogic:
     def get_cpu_name(self):
         try:
             info = get_cpu_info()
-            return info.get('brand_raw', 'Unknown CPU')
+            return info.get("brand_raw", "Unknown CPU")
         except Exception as e:
             return f"Error retrieving CPU info: {e}"
 
@@ -71,11 +71,14 @@ class SystemInfoLogic:
 
     def get_gpu_info(self):
         if GPUtil is None:
-            return "GPU Info: GPUtil not installed or no compatible GPU found.\n" + '-'*40
+            return (
+                "GPU Info: GPUtil not installed or no compatible GPU found.\n"
+                + "-" * 40
+            )
 
         gpus = GPUtil.getGPUs()
         if not gpus:
-            return "GPU Info: No GPU Found.\n" + '-'*40
+            return "GPU Info: No GPU Found.\n" + "-" * 40
 
         info = "GPU Information:\n"
         for gpu in gpus:
@@ -125,6 +128,7 @@ class SystemInfoApp(QtWidgets.QWidget):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     window = SystemInfoApp()
     window.show()
