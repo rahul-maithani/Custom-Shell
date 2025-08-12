@@ -9,6 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys, os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource (works for PyInstaller and dev) """
+    base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
 
 
 class Ui_Form(object):
@@ -44,7 +50,7 @@ class Ui_Form(object):
         self.label.setGeometry(QtCore.QRect(655, -50, 400, 791))  # gif position
         self.label.setText("")
 
-        self.movie = QtGui.QMovie("./media/animated4.webp")
+        self.movie = QtGui.QMovie(resource_path("./media/animated4.webp"))
         self.label.setMovie(self.movie)
         self.movie.start()
 

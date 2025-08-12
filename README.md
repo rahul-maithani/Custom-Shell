@@ -1,1 +1,1 @@
-To run Program Just run app.py file
+To run Program Just run output.py file

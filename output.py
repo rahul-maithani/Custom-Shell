@@ -3,6 +3,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from network_merge_pyqt5_logic import NetworkQtWindow
 from systeminfo_merged import SystemInfoApp
 from filemang_merge_pyqt5_logic import FileManQtWindow
+from battery_merged import BatteryHealthApp
+from disk_merged import DiskManagerApp
+
+import sys
+import os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource (works for PyInstaller and during development) """
+    base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
 
 
 class Ui_MainWindow(object):
@@ -19,7 +29,8 @@ class Ui_MainWindow(object):
 
         spinner = QtWidgets.QLabel(self.loading_dialog)
         spinner.setStyleSheet("background-color: rgba(0,0,0,0);")
-        movie = QtGui.QMovie("./media/spinner.gif")
+        movie = QtGui.QMovie(resource_path("media/spinner.gif"))
+
         movie.setScaledSize(QtCore.QSize(150, 150))
         spinner.setMovie(movie)
         spinner.setAlignment(QtCore.Qt.AlignCenter)
@@ -55,17 +66,18 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 0, 1061, 791))
-        self.label.setMovie(QtGui.QMovie("./media/animated2.gif"))
+        self.label.setMovie(QtGui.QMovie(resource_path("media/animated2.gif")))
+
         self.label.movie().start()
         self.label.setScaledContents(True)
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(440, 130, 301, 51))
-        self.label_2.setStyleSheet('font: 75 24pt "MS Shell Dlg 2"; color: white;')
+        self.label_2.setGeometry(QtCore.QRect(440, 120, 301, 51))
+        self.label_2.setStyleSheet('font: 75 26pt "MS Shell Dlg 2"; color: white;')
 
         def make_button(y, color, hover_color, text, icon_path, icon_size):
             btn = QtWidgets.QPushButton(self.centralwidget)
-            btn.setGeometry(QtCore.QRect(418, y, 280, 70))
+            btn.setGeometry(QtCore.QRect(428, y, 280, 60))
             btn.setStyleSheet(
                 f"""
                 QPushButton {{
@@ -73,7 +85,7 @@ class Ui_MainWindow(object):
                     color: white;
                     font: bold 20px;
                     border-radius: 10px;
-                    padding: 20px;
+                    padding: 10px;
                 }}
                 QPushButton:hover {{
                     background-color: {hover_color};
@@ -81,22 +93,27 @@ class Ui_MainWindow(object):
             """
             )
             icon = QtGui.QIcon()
-            icon.addPixmap(
-                QtGui.QPixmap(icon_path), QtGui.QIcon.Normal, QtGui.QIcon.Off
-            )
+            icon.addPixmap(QtGui.QPixmap(resource_path(icon_path)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
             btn.setIcon(icon)
             btn.setIconSize(QtCore.QSize(*icon_size))
             btn.setText(f"    {text}")
             return btn
 
         self.pushButton = make_button(
-            230, "#670D2F", "#A53860", "File Management", "./media/FILE.jpeg", (40, 40)
+            200, "#670D2F", "#A53860", "File Management", "./media/FILE.jpeg", (40, 40)
         )
         self.pushButton_2 = make_button(
-            330, "#344C64", "#57A6A1", "Network", "./media/network.png", (60, 60)
+            290, "#344C64", "#57A6A1", "Network", "./media/network.png", (60, 60)
         )
         self.pushButton_3 = make_button(
-            430, "#1D267D", "#5C469C", "System Info", "./media/SINFO.jpeg", (40, 40)
+            380, "#1D267D", "#5C469C", "System Info", "./media/SINFO.jpeg", (40, 40)
+        )
+        self.pushButton_4 = make_button(
+            470, "#008080", "#4FBDBA", "Battery Info", "./media/BATTERY.jpeg", (40, 40)
+        )
+        self.pushButton_5 = make_button(
+            560, "#78023B", "#A44770", "Disk Cleanup", "./media/disk.jpeg", (40, 40)
         )
 
         MainWindow.setCentralWidget(self.centralwidget)
@@ -107,6 +124,8 @@ class Ui_MainWindow(object):
         self.pushButton.clicked.connect(self.open_file_management)
         self.pushButton_2.clicked.connect(self.open_network)
         self.pushButton_3.clicked.connect(self.open_system_info)
+        self.pushButton_4.clicked.connect(self.open_battery_info)
+        self.pushButton_5.clicked.connect(self.open_disk_info)
 
     def retranslateUi(self, MainWindow):
         _t = QtCore.QCoreApplication.translate
@@ -139,6 +158,25 @@ class Ui_MainWindow(object):
         self.file_window = SystemInfoApp()
         self.file_window.show()
         self.loading_dialog.close()
+        
+    def open_battery_info(self):
+        self.show_loading()
+        QtCore.QTimer.singleShot(1000, self._launch_battery_info)
+
+    def _launch_battery_info(self):
+        self.file_window = BatteryHealthApp()
+        self.file_window.show()
+        self.loading_dialog.close()
+        
+    def open_disk_info(self):
+        self.show_loading()
+        QtCore.QTimer.singleShot(1000, self._launch_disk_info)
+
+    def _launch_disk_info(self):
+        self.file_window = DiskManagerApp()
+        self.file_window.show()
+        self.loading_dialog.close()
+
 
 
 if __name__ == "__main__":
